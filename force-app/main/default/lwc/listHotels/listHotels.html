@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="List of Hotels">
+        <div class="slds-p-around_medium list-hotels">
+            <ul>
+            <template for:each={hotels} for:item="hotel">
+                <div class="slds-p-around_medium" key={hotel.Id}>
+                    <lightning-input   type="checkbox" label={hotel.Hotel_Name__c} value={hotel.Id}  onchange={handleCheckboxChange}></lightning-input>
+                    <!-- <li >{hotel.Hotel_Name__c} | {hotel.Hotel_Type__c} | {hotel.Per_Day_Cost__c} | WIFI: {hotel.WiFi_Availability__c}</li> -->
+                    <span>{hotel.Hotel_Type__c} | {hotel.Per_Day_Cost__c} | WIFI: {hotel.WiFi_Availability__c}</span>
+                        <template if:true={hotel.WiFi_Availability__c}>
+                            <span>WIFI Availability : YES</span>
+                        </template>
+                        <template if:false={hotel.WiFi_Availability__c}>
+                            <span>WIFI Availability : NO</span>
+                        </template>
+                    <div class="slds-m-top_medium" >
+                        <lightning-button label="Pay" onclick={payHandler} variant="brand"></lightning-button>
+
+                    </div>
+                </div>
+                <!-- <lightning-output-field key={hotel.Id} >{hotel.Hotel_Name__c}</lightning-output-field> -->
+            </template>
+        </ul>
+        </div>
+    </lightning-card>
+    <template if:true={paymentDetailsVisible}>
+        <c-payment-details cost={hotel_cost_for_payment} guestrecordid={guestrecordid}></c-payment-details>
+    </template>
+
+</template>

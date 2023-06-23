@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="4" flexibility="auto">
+                <!-- <c-guest-info showlisthotelcomponent={showlisthotelcomponent}></c-guest-info> -->
+                <c-guest-info onvaluechange={handleValueChange}></c-guest-info>
+            </lightning-layout-item>
+            <template if:true={showlisthotelcomponent}>
+                <lightning-layout-item size="4" flexibility="auto">
+                    <c-hotel-info visible={showMiddleComponent} onbuttonclick={handleMiddleButtonClick}></c-hotel-info>
+                </lightning-layout-item>
+           </template>
+
+        <template if:true={showPaymentComponent} >
+            <lightning-layout-item size="4" flexibility="auto">
+                <c-payment-info visible={showRightComponent} onbuttonclick={handleRightButtonClick}></c-payment-info>
+            </lightning-layout-item>
+        </template>
+        </lightning-layout>
+
+    </lightning-card>
+</template>

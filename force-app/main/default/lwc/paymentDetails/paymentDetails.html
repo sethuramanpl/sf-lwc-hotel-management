@@ -1,0 +1,15 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Payment Detail From">
+        <div class="slds-p-around_medium slds-grid  ">
+            <form>
+                <!-- <lightning-input label="Card Name" name="cardName" value={cardName} onchange={firstchangeHandler}></lightning-input> -->
+                <lightning-input  label="Card Number"            name="cardNum"         value={cardNum}      onchange={cardNumHandler}></lightning-input>
+                <lightning-input  label="Card Expiry Month [MM]" name="cardExpMonth"    value={cardExpMonth} onchange={cardExpMonthHandler}></lightning-input>
+                <lightning-input  label="Card Expiry Year [YY]"  name="cardExpYear"     value={cardExpYear}  onchange={cardExpYearHandler}></lightning-input>
+                <lightning-input  label="CVV"                    name="cvv"             value={cvv}          onchange={cvvHandler}></lightning-input>
+                <lightning-button label="Make Payment" onclick={handlePayment} variant="brand"></lightning-button>
+            </form>
+        </div>
+    </lightning-card>
+</template>

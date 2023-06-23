@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Hotel Reservation Form">
+
+        <div class="slds-p-around_medium slds-grid  ">
+            <form>
+                <!-- <div class="slds-col slds-size_1-of-6"> -->
+                    <lightning-input label="First Name" name="firstName" value={firstName} onchange={firstchangeHandler}></lightning-input>
+                <!-- </div> -->
+            <!-- <div class="slds-col slds-size_1-of-6"> -->
+              <lightning-input label="Last Name" name="lastName" value={lastName} onchange={lastchangeHandler}></lightning-input>
+             <!-- </div> -->
+            <!-- <div class="slds-col slds-size_1-of-6"> -->
+                <lightning-input label="No. of Adults(12+)" value={adults}></lightning-input>
+            <!-- </div> -->
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input label="No. of Children(1 to 12)" value={children}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input type="tel" label="Phone" name="phone" value={phone} onchange={phonechangeHandler}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input type="email" label="Email" name="email" value={email} onchange={emailchangeHandler}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input type="date" label="Check-in Date" value={checkInDate} onchange={handleCheckInDateChange}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input type="date" label="Check-out Date" value={checkOutDate} onchange={handleCheckOutDateChange}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-input label="City" value={city} onchange={handleCityChange}></lightning-input>
+            <!-- <div class="slds-col slds-size_1-of-6"></div> -->
+            <lightning-combobox label="Hotel Type" options={hotelOptions} value={selectedHotelType} onchange={handleHotelTypeChange}></lightning-combobox>
+
+            <div class="slds-m-top_medium">
+                <lightning-button label="Search" onclick={handleSearch} variant="brand"></lightning-button>
+            </div>
+        </form>
+        </div>
+    </lightning-card>
+    <template if:true={listHotelsComponent}>
+        <c-list-hotels city={cityValue} guestrecordid={guestrecordid}></c-list-hotels>
+    </template>
+
+</template>
